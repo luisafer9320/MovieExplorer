@@ -1,0 +1,285 @@
+.home {
+  min-height: 100vh;
+
+  background-image: url('../../assets/fondo.png.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 40px;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  z-index: 2;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo-box {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background: linear-gradient(135deg,
+      #f43f5e,
+      #f59e0b);
+  margin-bottom: 20px;
+  box-shadow:
+    0 0 40px rgba(249, 115, 22, 0.5);
+}
+
+.logo-container h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.logo-container p {
+  color: #94a3b8;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 50px;
+  border-radius: 30px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  box-shadow:
+    0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-card h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.welcome-card span {
+  background: linear-gradient(90deg,
+      #f43f5e,
+      #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-card p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.welcome-card button {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(90deg,
+      #f43f5e,
+      #f59e0b);
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+  box-shadow:
+    0 0 30px rgba(249, 115, 22, 0.4);
+}
+
+.welcome-card button:hover {
+  transform: scale(1.03);
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stat-box {
+  flex: 1;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-box h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fda4af;
+}
+
+.stat-box span {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 8, 22, 0.6);
+  z-index: 1;
+}
+
+/* ===== MEDIA QUERIES - RESPONSIVE ===== */
+
+/* Tablets y pantallas medianas (max 768px) */
+@media (max-width: 768px) {
+  .home {
+    padding: 20px;
+  }
+
+  .hero-container {
+    gap: 30px;
+  }
+
+  .logo-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+  }
+
+  .logo-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+
+  .logo-container p {
+    font-size: 0.95rem;
+  }
+
+  .welcome-card {
+    max-width: 90%;
+    padding: 40px 25px;
+    border-radius: 25px;
+  }
+
+  .welcome-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .welcome-card p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .welcome-card button {
+    padding: 15px;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .stats-container {
+    gap: 15px;
+  }
+
+  .stat-box {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .stat-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .stat-box span {
+    font-size: 0.8rem;
+  }
+}
+
+/* Móviles (max 480px) */
+@media (max-width: 480px) {
+  .home {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .hero-container {
+    gap: 20px;
+  }
+
+  .logo-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .logo-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+
+  .logo-container p {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .welcome-card {
+    max-width: 95%;
+    padding: 30px 15px;
+    border-radius: 20px;
+  }
+
+  .welcome-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .welcome-card p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .welcome-card button {
+    padding: 13px;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-box {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .stat-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+
+  .stat-box span {
+    font-size: 0.75rem;
+  }
+}
