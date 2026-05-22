@@ -1,6 +1,5 @@
 .home {
   min-height: 100vh;
-
   background-image: url('../../assets/fondo.png.webp');
   background-size: cover;
   background-position: center;
@@ -77,6 +76,7 @@
   background: linear-gradient(90deg,
       #f43f5e,
       #f59e0b);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
