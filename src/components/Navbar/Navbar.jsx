@@ -1,12 +1,21 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Search, User } from 'lucide-react'
 import './Navbar.css'
 
 export const Navbar = () => {
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false)
   
   // 1. Creamos el estado para saber qué botón tiene el color activo. 
   // Iniciamos con 'Inicio' por defecto.
   const [activeTab, setActiveTab] = useState('Inicio')
+
+  const handleNav = (tab, path) => {
+    setActiveTab(tab)
+    setIsOpen(false)
+    navigate(path)
+  }
 
   return (
     <nav className="navbar">
@@ -19,10 +28,7 @@ export const Navbar = () => {
           <button 
             type="button"
             className={`nav-btn ${activeTab === 'Inicio' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('Inicio');
-              setIsOpen(false); // Cierra el menú móvil al hacer clic
-            }}
+            onClick={() => handleNav('Inicio', '/')}
           >
             Inicio
           </button>
@@ -31,10 +37,7 @@ export const Navbar = () => {
           <button 
             type="button"
             className={`nav-btn ${activeTab === 'Películas' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('Películas');
-              setIsOpen(false);
-            }}
+            onClick={() => handleNav('Películas', '/explorer')}
           >
             Películas
           </button>
@@ -43,15 +46,21 @@ export const Navbar = () => {
           <button 
             type="button"
             className={`nav-btn ${activeTab === 'Series' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('Series');
-              setIsOpen(false);
-            }}
+            onClick={() => handleNav('Series', '/explorer')}
           >
             Series
           </button>
         </li>
       </ul>
+
+      <div className="navbar-actions">
+        <button type="button" className="icon-btn" aria-label="Buscar" onClick={() => navigate('/explorer')}>
+          <Search size={18} />
+        </button>
+        <button type="button" className="icon-btn" aria-label="Perfil">
+          <User size={18} />
+        </button>
+      </div>
     </nav>
   )
 }

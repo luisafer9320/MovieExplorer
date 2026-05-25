@@ -44,11 +44,14 @@ export const TopMovies = () => {
     <section className="top-movies">
       <h2>Top 10 Películas Populares</h2>
       <div className="movies-grid">
-        {/* 9. Mapeamos cada película y creamos un MovieCard */}
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+        {/* 9. Mapeamos cada película y creamos un MovieCard con badge */}
+        {movies.map((movie, index) => (
+          <div className="top-movie" key={movie.id}>
+            <div className="rank-badge">#{index + 1}</div>
+            <MovieCard movie={movie} />
+          </div>
         ))}
       </div>
     </section>
-  );
+  )
 };

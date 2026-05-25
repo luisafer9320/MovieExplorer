@@ -20,6 +20,30 @@
   padding: 0;                     
 }
 
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 10px 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: linear-gradient(135deg, #f43f5e, #f59e0b);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
 .nav-btn {
   background: transparent;        
   color: #ffffff;                 
