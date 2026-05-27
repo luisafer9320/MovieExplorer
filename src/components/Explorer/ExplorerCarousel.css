@@ -1,0 +1,139 @@
+/* ==========================================
+   CONTENEDOR PRINCIPAL Y PANTALLA COMPLETA
+   ========================================== */
+.explorer-carousel {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  height: 85vh; /* Ajustado para que luzca imponente como en tu captura */
+  overflow: hidden; 
+  background-color: #040811;
+}
+
+/* El riel interno que alinea las tarjetas en una gran fila */
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Transición cinemática más suave */
+}
+
+/* ==========================================
+   TARJETA INDIVIDUAL
+   ========================================== */
+.carousel-item {
+  flex: 0 0 100vw;          /* Fuerza a ocupar exactamente una pantalla completa por tarjeta */
+  height: 100%;             
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  display: flex;
+  align-items: flex-end;    
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   CAPA DE DEGRADADO OSCURO (OVERLAY)
+   ========================================== */
+.carousel-overlay {
+  position: absolute;
+  inset: 0;                 
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(4, 8, 17, 0.1) 0%, rgba(4, 8, 17, 0.85) 70%, rgba(4, 8, 17, 0.98) 100%);
+  z-index: 1;               
+}
+
+/* ==========================================
+   TEXTOS Y BOTONES (Alineación corregida)
+   ========================================== */
+.carousel-content {
+  position: relative;
+  z-index: 2;               
+  padding: 0 80px 80px;     /* Margen inferior idéntico a tu foto */
+  max-width: 650px;         /* 🟢 CORREGIDO: Espacio eliminado y expandido para títulos largos */
+  color: #ffffff;           /* 🟢 CORREGIDO: Letras blancas legibles */
+  text-align: left;
+}
+
+.carousel-title {
+  margin: 0 0 12px 0;
+  font-size: 3.2rem;        
+  line-height: 1.1;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #e2e8f0;
+}
+
+.carousel-rating {
+  color: #f5c518; /* Estrella dorada */
+  font-weight: bold;
+}
+
+.meta-divider {
+  color: rgba(255,255,255,0.3);
+}
+
+.carousel-overview {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+}
+
+/* Botones y Flechas Flotantes Circulares */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.arrow-left { left: 30px; }
+.arrow-right { right: 30px; }
+
+/* Botón de acción principal */
+.play-btn {
+  background-color: #f5c518; /* Amarillo de tu paleta */
+  color: #040817;
+  padding: 12px 28px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.play-btn:hover {
+  background-color: #dfb113;
+}

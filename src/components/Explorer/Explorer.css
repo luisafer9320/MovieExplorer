@@ -1,0 +1,876 @@
+/* =========================================================
+   CARDS ESTILO TOP MOVIES / DISNEY+
+   ========================================================= */
+
+.section-card {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* Hover premium */
+.section-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(96, 165, 255, 0.4);
+  box-shadow: 0 28px 70px rgba(8, 20, 52, 0.7);
+}
+
+/* Glow radial */
+.section-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left,
+    rgba(96, 165, 255, 0.16),
+    transparent 45%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Shine effect */
+.section-card::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 120%;
+  height: 120%;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0)
+    );
+  transform: translateX(-120%) rotate(25deg);
+  opacity: 0;
+  transition:
+    transform 0.7s ease,
+    opacity 0.7s ease;
+  z-index: 2;
+}
+
+.section-card:hover::after {
+  transform: translateX(120%) rotate(25deg);
+  opacity: 1;
+}
+
+/* =========================================================
+   IMAGEN DEL POSTER
+   ========================================================= */
+
+.section-card-media {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Overlay degradado elegante */
+.section-card-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(2,6,23,0.95),
+      rgba(2,6,23,0.15),
+      transparent
+    );
+}
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.section-card-details {
+  position: relative;
+  z-index: 5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Badge */
+.section-card-badge {
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg,#f43f5e,#f59e0b);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(244,63,94,0.3);
+}
+
+/* Título */
+.section-card h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Meta info */
+.section-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Pills */
+.section-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.06);
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+}
+
+/* =========================================================
+   GRID RESPONSIVE
+   ========================================================= */
+
+/* =========================================================
+   GRID RESPONSIVE + ESTILOS ADOPTADOS PREMIUM
+   ========================================================= */
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+/* Forzamos a que las MovieCard dentro de la grid compartan el diseño premium de .section-card */
+.movie-grid > * {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  backdrop-filter: blur(10px);
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover de las tarjetas de la grid */
+.movie-grid > *:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(96, 165, 255, 0.4);
+  box-shadow: 0 30px 70px rgba(8, 20, 52, 0.75);
+}
+
+/* Glow radial en la grid */
+.movie-grid > *::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(96, 165, 255, 0.18), transparent 45%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Shine effect en la grid */
+.movie-grid > *::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  transform: translateX(-120%) rotate(25deg);
+  opacity: 0;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+  z-index: 2;
+}
+
+.movie-grid > *:hover::after {
+  transform: translateX(120%) rotate(25deg);
+  opacity: 1;
+}
+
+/* Adaptación responsive específica para la grid en dispositivos móviles */
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .movie-grid > * {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 14px;
+  }
+}
+/* =========================================================
+   SCROLL HORIZONTAL PREMIUM
+   ========================================================= */
+
+.top-section-cards {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+}
+
+.top-section-cards::-webkit-scrollbar {
+  height: 8px;
+}
+
+.top-section-cards::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(90deg,#f43f5e,#f59e0b);
+  border-radius: 9999px;
+}
+/* =========================================================
+   RESPONSIVE DESIGN PREMIUM
+   ========================================================= */
+
+/* ---------- LAPTOPS ---------- */
+
+@media (max-width: 1200px) {
+
+  .top-section-cards {
+    padding: 20px 50px;
+    gap: 20px;
+  }
+
+  .section-card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+
+  .section-card-media {
+    height: 320px;
+  }
+}
+
+/* ---------- TABLETS ---------- */
+
+@media (max-width: 992px) {
+
+  .explorer-page {
+    padding: 40px 24px;
+  }
+
+  .explorer-controls {
+    gap: 18px;
+  }
+
+  .top-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .top-section-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .top-section-cards {
+    padding: 20px 40px;
+    gap: 18px;
+  }
+
+  .section-card {
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  .section-card-media {
+    height: 290px;
+  }
+
+  .section-card-details {
+    padding: 16px;
+  }
+
+  .section-card h3 {
+    font-size: 1rem;
+  }
+
+  .slider-arrow {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* ---------- MOBILE LARGE ---------- */
+
+@media (max-width: 768px) {
+
+  .explorer-page {
+    padding: 30px 18px;
+  }
+
+  .search-box {
+    padding: 16px 20px;
+  }
+
+  .genre-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .genre-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .genre-pill {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .top-section-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .top-section-header p {
+    font-size: .92rem;
+  }
+
+  .top-section-cards {
+    padding: 20px 20px;
+    gap: 16px;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .section-card {
+    min-width: 180px;
+    max-width: 180px;
+
+    scroll-snap-align: start;
+  }
+
+  .section-card-media {
+    height: 260px;
+  }
+
+  .section-card-details {
+    gap: 12px;
+  }
+
+  .section-card h3 {
+    font-size: .95rem;
+    line-height: 1.35;
+  }
+
+  .section-card-meta {
+    gap: 8px;
+  }
+
+  .section-card-meta span {
+    font-size: .72rem;
+    padding: 6px 10px;
+  }
+
+  .section-card-badge {
+    font-size: .72rem;
+    padding: 7px 12px;
+  }
+
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+
+    backdrop-filter: blur(6px);
+  }
+
+  .slider-arrow svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ---------- MOBILE SMALL ---------- */
+
+@media (max-width: 480px) {
+
+  .explorer-page {
+    padding: 24px 12px;
+  }
+
+  .search-box {
+    padding: 14px 18px;
+    gap: 10px;
+  }
+
+  .search-box input {
+    font-size: .92rem;
+  }
+
+  .genre-pill {
+    padding: 10px 16px;
+    font-size: .85rem;
+  }
+
+  .top-section-header {
+    gap: 6px;
+  }
+
+  .top-section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .top-section-header p {
+    font-size: .82rem;
+  }
+
+  .top-section-cards {
+    padding: 16px 10px;
+    gap: 14px;
+  }
+
+  .section-card {
+    min-width: 160px;
+    max-width: 160px;
+
+    border-radius: 16px;
+  }
+
+  .section-card-media {
+    height: 230px;
+  }
+
+  .section-card-details {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .section-card h3 {
+    font-size: .88rem;
+  }
+
+  .section-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .section-card-meta span {
+    width: fit-content;
+  }
+
+  .section-card-badge {
+    font-size: .68rem;
+    padding: 6px 10px;
+  }
+
+  .slider-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .slider-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* =========================================================
+   WRAPPER GENERAL
+   ========================================================= */
+
+.movies-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* =========================================================
+   SCROLL HORIZONTAL PREMIUM
+   ========================================================= */
+
+.top-section-cards {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 60px;
+  scrollbar-width: none;
+}
+
+.top-section-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
+   CARD PREMIUM
+   ========================================================= */
+
+.section-card {
+  position: relative;
+  min-width: 240px;
+  max-width: 240px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  background: rgba(15, 23, 42, 0.92);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.45);
+
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease,
+    border-color .28s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Hover */
+.section-card:hover {
+  transform: translateY(-8px) scale(1.03);
+
+  border-color:
+    rgba(96,165,255,0.4);
+
+  box-shadow:
+    0 30px 70px rgba(8,20,52,0.75);
+}
+
+/* Glow */
+.section-card::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(96,165,255,.18),
+      transparent 45%
+    );
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Shine */
+.section-card::after {
+  content: '';
+
+  position: absolute;
+
+  top: -40%;
+  left: -40%;
+
+  width: 120%;
+  height: 120%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,0)
+    );
+
+  transform:
+    translateX(-120%) rotate(25deg);
+
+  opacity: 0;
+
+  transition:
+    transform .7s ease,
+    opacity .7s ease;
+
+  z-index: 2;
+}
+
+.section-card:hover::after {
+  transform:
+    translateX(120%) rotate(25deg);
+
+  opacity: 1;
+}
+
+/* =========================================================
+   POSTER
+   ========================================================= */
+
+.section-card-media {
+  width: 100%;
+  height: 340px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+/* Overlay */
+.section-card-media::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(2,6,23,.95),
+      rgba(2,6,23,.15),
+      transparent
+    );
+}
+
+/* =========================================================
+   INFO
+   ========================================================= */
+
+.section-card-details {
+  position: relative;
+  z-index: 5;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Badge */
+.section-card-badge {
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background:
+    linear-gradient(
+      135deg,
+      #f43f5e,
+      #f59e0b
+    );
+  color: white;
+  font-size: .78rem;
+  font-weight: 700;
+  box-shadow:
+    0 8px 20px rgba(244,63,94,.3);
+}
+
+/* Title */
+.section-card h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Meta */
+.section-card-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.section-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 12px;
+
+  border-radius: 9999px;
+
+  background:
+    rgba(255,255,255,.06);
+
+  color: #cbd5e1;
+
+  font-size: .82rem;
+
+  border:
+    1px solid rgba(255,255,255,.05);
+}
+
+/* =========================================================
+   FLECHAS
+   ========================================================= */
+
+.slider-arrow {
+  position: absolute;
+
+  top: 45%;
+  transform: translateY(-50%);
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background:
+    rgba(8,17,33,.78);
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    all .25s ease;
+}
+
+/* Hover */
+.slider-arrow:hover {
+  background:
+    rgba(59,130,246,.45);
+
+  transform:
+    translateY(-50%) scale(1.08);
+}
+
+.slider-arrow.left {
+  left: 0;
+}
+
+.slider-arrow.right {
+  right: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .section-card {
+    min-width: 190px;
+    max-width: 190px;
+  }
+
+  .section-card-media {
+    height: 280px;
+  }
+
+  .slider-arrow {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* ---------- EXTRA SMALL DEVICES ---------- */
+
+@media (max-width: 360px) {
+
+  .section-card {
+    min-width: 145px;
+    max-width: 145px;
+  }
+
+  .section-card-media {
+    height: 210px;
+  }
+
+  .section-card h3 {
+    font-size: .82rem;
+  }
+
+  .section-card-meta span {
+    font-size: .68rem;
+    padding: 5px 8px;
+  }
+}
+
+/* =========================================================
+   SMOOTH TOUCH SCROLL
+   ========================================================= */
+
+.top-section-cards {
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+}
+
+/* =========================================================
+   IMPROVED TOUCH EXPERIENCE
+   ========================================================= */
+
+.section-card,
+.slider-arrow,
+.genre-pill {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   SAFE IMAGE SCALING
+   ========================================================= */
+
+.section-card-media {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   PREVENT OVERFLOW
+   ========================================================= */
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   BETTER MOBILE PERFORMANCE
+   ========================================================= */
+
+.section-card,
+.section-card-media,
+.slider-arrow {
+  will-change: transform;
+}

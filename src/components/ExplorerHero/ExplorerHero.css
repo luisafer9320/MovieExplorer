@@ -1,0 +1,83 @@
+/* Contenedor principal de la ficha */
+.explorer-hero {
+  position: relative;          /* Permite que otros elementos se posicionen encima */
+  width: 100%;                 /* Ocupa todo el ancho de la pantalla */
+  height: 75vh;                /* Ocupa el 75% del alto de la pantalla */
+  overflow: hidden;            /* Corta cualquier cosa que se salga del contenedor */
+  background-color: #040811;   /* Fondo azul oscuro idéntico al de Disney+ */
+  color: #fff;                 /* Letras de color blanco */
+  font-family: sans-serif;
+}
+
+/* La imagen de fondo de la película */
+.hero-backdrop-img {
+  position: absolute;          /* Se estira por todo el contenedor */
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;      /* Hace que la imagen cubra todo el espacio sin deformarse */
+  background-position: center; /* Centra la imagen de fondo */
+  z-index: 1;                  /* Capa trasera */
+}
+
+/* Contenedor del texto (Abajo a la izquierda) */
+.hero-content {
+  position: absolute;          /* Flota por encima de la imagen de fondo */
+  bottom: 0;                   /* Lo pega completamente abajo */
+  left: 0;                     /* Lo pega completamente a la izquierda */
+  width: 100%;
+  padding: 40px;               /* Margen interno para que el texto no toque los bordes */
+  z-index: 2;                  /* Capa delantera (por encima de la imagen) */
+  box-sizing: border-box;      /* Evita que el padding deforme el tamaño */
+}
+
+/* Estructura para alinear la portada y el texto de lado a lado */
+.hero-flex-layout {
+  display: flex;               /* Activa la caja flexible */
+  align-items: flex-end;       /* Alinea los elementos en la parte de abajo */
+  gap: 25px;                   /* Separación de 25 píxeles entre la portada y el texto */
+}
+
+/* Imagen de la mini portada */
+.hero-mini-poster {
+  width: 130px;                /* Ancho de la portada chica */
+  border-radius: 8px;          /* Bordes redondeados */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil brillante */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7); /* Sombra oscura para dar profundidad */
+}
+
+/* Contenedor de los textos */
+.hero-text-details {
+  max-width: 600px;            /* Limita el ancho del texto para que sea cómodo de leer */
+}
+
+/* Título de la película */
+.hero-title {
+  font-size: 2rem;             /* Tamaño de letra mediano, no gigante */
+  margin: 0 0 8px 0;           /* Quita márgenes innecesarios */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Sombra negra para leerlo si el fondo es claro */
+}
+
+/* Fila de valoración y año */
+.hero-meta {
+  display: flex;
+  gap: 12px;                   /* Separa la estrella del año */
+  font-size: 0.9rem;           /* Letra un poco más pequeña */
+  color: #cccccc;              /* Color gris claro */
+  margin-bottom: 10px;
+}
+
+.hero-rating {
+  color: #f5c518;              /* Color dorado para la estrella */
+  font-weight: bold;
+}
+
+/* Sinopsis de la película */
+.hero-overview {
+  font-size: 0.9rem;
+  line-height: 1.4;            /* Separación entre renglones */
+  color: #e0e0e0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;       /* Si el texto es muy largo, lo corta automáticamente en 3 líneas */
+  line-clamp: 3;               /* Propiedad estándar para compatibilidad */
+  -webkit-box-orient: vertical;
+  overflow: hidden;            /* Esconde lo que se pase de las 3 líneas */
+}

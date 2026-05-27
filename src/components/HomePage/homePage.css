@@ -1,6 +1,5 @@
 .home {
   min-height: 100vh;
-
   background-image: url('../../assets/fondo.png.webp');
   background-size: cover;
   background-position: center;
@@ -77,6 +76,7 @@
   background: linear-gradient(90deg,
       #f43f5e,
       #f59e0b);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -135,14 +135,66 @@
   font-size: 0.9rem;
 }
 
-.background-overlay {
+/* Overlay trending strip */
+.overlay {
   position: absolute;
-  top: 0;
   left: 0;
+  right: 0;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.trending-strip {
   width: 100%;
-  height: 100%;
-  background: rgba(5, 8, 22, 0.6);
-  z-index: 1;
+  max-width: 1200px;
+  display: flex;
+  gap: 12px;
+  padding: 12px 18px;
+  overflow-x: auto;
+  background: linear-gradient(90deg, rgba(2,6,23,0.6), rgba(2,6,23,0.35));
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+.trending-strip::-webkit-scrollbar {
+  height: 8px;
+}
+.trending-strip::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 9999px;
+}
+
+.trending-item {
+  flex: 0 0 auto;
+  width: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.trending-poster {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.trending-title {
+  padding: 8px 10px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.2));
 }
 
 /* ===== MEDIA QUERIES - RESPONSIVE ===== */
