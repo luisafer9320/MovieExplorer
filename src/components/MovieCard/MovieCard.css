@@ -45,6 +45,7 @@
 
 .movie-card-media {
   width: 320px;
+  max-width: 70vw;
   min-height: 220px;
   border-radius: 22px;
   background-size: cover;

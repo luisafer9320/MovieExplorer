@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './MovieCard.css'
 
 const genreMap = {
@@ -27,7 +28,6 @@ const getGenreName = (movie) => {
   const genreId = movie.genre_ids?.[0] || movie.genres?.[0]?.id
   return genreMap[genreId] || 'Película'
 }
-
 export const MovieCard = ({
   movie,
   titulo,
@@ -40,6 +40,7 @@ export const MovieCard = ({
   compact = false,
   className = '',
 }) => {
+  const navigate = useNavigate();
   const title = titulo || movie?.title || movie?.name || 'Película'
   const year = anio || movie?.release_date?.slice(0, 4) || movie?.first_air_date?.slice(0, 4) || '—'
   const duration =
@@ -54,7 +55,11 @@ export const MovieCard = ({
   const genre = generos || getGenreName(movie)
 
   return (
-    <article className={`movie-card ${compact ? 'movie-card-compact' : ''} ${className}`}>
+    <article
+      className={`movie-card ${compact ? 'movie-card-compact' : ''} ${className}`}
+      style={{ cursor: 'pointer' }}
+      onClick={() => navigate(`/movie/${movie.id}`)}
+    >
       <div
         className="movie-card-media"
         style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : 'none' }}
@@ -77,3 +82,4 @@ export const MovieCard = ({
     </article>
   )
 }
+

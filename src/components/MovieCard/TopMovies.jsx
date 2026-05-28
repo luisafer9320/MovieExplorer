@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MovieCard } from './MovieCard';
 import './TopMovies.css';
 
 export const TopMovies = () => {
+  const navigate = useNavigate();
   // 1. Estado para guardar las películas
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -85,11 +87,12 @@ export const TopMovies = () => {
                 {/* Medalla de posición del Top */}
                 <div className="rank-badge">#{index + 1}</div>
 
-                {/* La tarjeta ahora renderiza la imagen limpia con los estilos y hover premium */}
+                {/* Card clickeable para navegar a la ficha */}
                 <div
                   className="movie-card"
-                  style={{ backgroundImage: `url(${imageUrl})` }}
+                  style={{ backgroundImage: `url(${imageUrl})`, cursor: 'pointer' }}
                   title={title}
+                  onClick={() => navigate(`/movie/${movie.id}`)}
                 />
 
                 {/* Bloque con los textos desacoplados abajo, de forma independiente y moderna */}

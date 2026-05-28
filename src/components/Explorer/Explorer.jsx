@@ -392,13 +392,14 @@ export const Explorer = () => {
                                 id={`slider-${section.id}`}
                             >
 
-                                {sectionMovies.map((movie, index) => (
 
+                                {sectionMovies.map((movie, index) => (
                                     <article
                                         key={`${section.id}-${movie.id}`}
                                         className="section-card"
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={() => window.location.href = `/movie/${movie.id}`}
                                     >
-
                                         <div
                                             className="section-card-media"
                                             style={{
@@ -406,33 +407,23 @@ export const Explorer = () => {
                                                     `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`
                                             }}
                                         />
-
                                         <div className="section-card-details">
-
                                             <h3>
                                                 {movie.title}
                                             </h3>
-
                                             <div className="section-card-meta">
-
                                                 <span>
                                                     ⭐ {movie.vote_average?.toFixed(1) ?? '—'}
                                                 </span>
-
                                                 <span>
                                                     {getMovieYear(movie)}
                                                 </span>
-
                                                 <span>
                                                     {getGenreName(movie)}
                                                 </span>
-
                                             </div>
-
                                         </div>
-
                                     </article>
-
                                 ))}
 
                             </div>
