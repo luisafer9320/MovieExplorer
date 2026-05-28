@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar/Navbar'
 import { Footer } from './components/Footer/Footer'
 import { HomePage } from './pages/Home'
 import { Explorer } from './pages/Explorer'
+import { MovieDetail } from './components/MovieDetail/MovieDetail'
 import './index.css'
 
 const movie = {
@@ -17,6 +18,7 @@ function App() {
                <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/explorer" element={<Explorer />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
         </Routes>
       </main>
       <Footer />
