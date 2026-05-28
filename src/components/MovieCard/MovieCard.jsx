@@ -28,6 +28,7 @@ const getGenreName = (movie) => {
   const genreId = movie.genre_ids?.[0] || movie.genres?.[0]?.id
   return genreMap[genreId] || 'Película'
 }
+
 export const MovieCard = ({
   movie,
   titulo,
@@ -60,10 +61,13 @@ export const MovieCard = ({
       style={{ cursor: 'pointer' }}
       onClick={() => navigate(`/movie/${movie.id}`)}
     >
+      {/* CONTENEDOR 1: LA IMAGEN GIGANTE A LA IZQUIERDA */}
       <div
         className="movie-card-media"
         style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : 'none' }}
       />
+
+      {/* CONTENEDOR 2: LOS DETALLES ORGANIZADOS A LA DERECHA */}
       <div className="movie-card-details">
         <div className="movie-card-headline">
           <h3 title={title}>{title}</h3>
@@ -71,10 +75,10 @@ export const MovieCard = ({
         </div>
 
         <div className="movie-card-meta">
+          <span className="movie-card-rating">⭐ {rating}</span>
           <span>{year}</span>
           <span>{duration}</span>
           <span>{genre}</span>
-          <span className="movie-card-rating">⭐ {rating}</span>
         </div>
 
         {!compact && <p className="movie-card-synopsis">{summary}</p>}
@@ -82,4 +86,3 @@ export const MovieCard = ({
     </article>
   )
 }
-

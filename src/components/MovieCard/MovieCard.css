@@ -7,150 +7,162 @@
   --card-muted: #94a3b8;
 }
 
+/* --- CONTENEDOR PRINCIPAL: SEPARACIÓN HORIZONTAL --- */
 .movie-card {
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  gap: 24px;
-  padding: 20px;
-  border-radius: 28px;
-  background: radial-gradient(circle at top left, rgba(16, 35, 86, 0.95), rgba(4, 8, 17, 0.96));
+  flex-direction: row;    /* Fuerza la organización horizontal de la tarjeta */
+  align-items: stretch;   /* Hace que la imagen y el texto midan lo mismo de alto */
+  width: 100%;
+  max-width: 1100px;      /* Ancho ideal para el formato panorámico de cine */
+  margin: 20px auto;
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-}
-
-.movie-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
   border-radius: 28px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 0 60px var(--card-glow);
-  opacity: 0;
-  transition: opacity 0.28s ease;
-  pointer-events: none;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
 .movie-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  border-color: rgba(96, 165, 255, 0.45);
-  box-shadow: 0 40px 120px rgba(8, 20, 52, 0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 40px 100px rgba(8, 20, 52, 0.7);
 }
 
-.movie-card:hover::after {
-  opacity: 1;
-}
-
+/* --- CONTENEDOR 1: LA IMAGEN HORIZONTAL PANORÁMICA --- */
 .movie-card-media {
-  width: 320px;
-  max-width: 70vw;
-  min-height: 220px;
-  border-radius: 22px;
+  display: block;
+  width: 50%;             /* Ocupa exactamente la mitad de la tarjeta horizontal */
+  min-height: 420px;      /* Altura fija imponente estilo cartel */
   background-size: cover;
-  background-position: center;
+  background-position: center 20%;
   background-repeat: no-repeat;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.24);
-  flex-shrink: 0;
+  position: relative;
+  flex-shrink: 0;         /* Evita que el contenedor de texto encoja la imagen */
 }
 
+/* El difuminado espectacular hacia la derecha (hacia el texto) */
+.movie-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Degradado multi-capa horizontal que funde la imagen con el color de fondo */
+  background: linear-gradient(
+    to right,             
+    rgba(8, 17, 33, 0) 0%,       /* Transparente a la izquierda */
+    rgba(8, 17, 33, 0.3) 50%,     /* Empieza a oscurecerse en el centro */
+    rgba(8, 17, 33, 0.85) 85%,    /* Oscurecimiento fuerte cerca del borde */
+    var(--card-bg) 100%           /* Se vuelve idéntico al fondo del texto a la derecha */
+  );
+  pointer-events: none;
+}
+
+/* --- CONTENEDOR 2: DETALLES A LA DERECHA --- */
 .movie-card-details {
-  display: grid;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente los bloques de texto */
+  gap: 22px;
+  padding: 40px 50px;      /* Padding premium espacioso */
+  background: var(--card-bg);
   color: var(--card-text);
-  flex: 1;
+  width: 50%;             /* Ocupa la otra mitad de la tarjeta */
 }
 
+/* --- TIPOGRAFÍAS Y ELEMENTOS INTERNOS --- */
 .movie-card-headline {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
 }
 
 .movie-card-headline h3 {
   margin: 0;
-  font-size: 1.7rem;
-  line-height: 1.05;
+  font-size: 2.4rem;       /* Título grande e impactante */
+  line-height: 1.1;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .movie-card-badge {
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.08);
   color: #e2e8f0;
   font-size: 0.85rem;
   font-weight: 700;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .movie-card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  gap: 16px;
   color: var(--card-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .movie-card-meta span {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 14px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .movie-card-rating {
-  background: rgba(59, 130, 246, 0.16);
-  color: #bfdbfe;
+  color: #facc15;          /* Nota de la estrella en amarillo */
+  font-weight: 700;
 }
 
 .movie-card-synopsis {
   margin: 0;
   color: #cbd5e1;
+  font-size: 1.05rem;
   line-height: 1.7;
-  max-height: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
+/* --- MODO COMPACTO HORIZONTAL --- */
 .movie-card-compact {
-  min-width: 320px;
-  max-width: 360px;
-  padding: 18px;
+  max-width: 650px;
 }
 
 .movie-card-compact .movie-card-media {
-  min-height: 200px;
-  border-radius: 20px;
+  width: 40%;
+  min-height: 220px;
 }
 
 .movie-card-compact .movie-card-details {
-  gap: 10px;
+  width: 60%;
+  padding: 24px;
+  gap: 12px;
 }
 
 .movie-card-compact .movie-card-headline h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
-.movie-card-compact .movie-card-meta {
-  gap: 8px;
-  font-size: 0.88rem;
-}
-
-.movie-card-compact .movie-card-synopsis {
-  display: none;
-}
-
-@media (max-width: 860px) {
+/* RESPONSIVE: Pasa automáticamente a vertical en pantallas de celulares */
+@media (max-width: 768px) {
   .movie-card {
     flex-direction: column;
   }
-
+  
   .movie-card-media {
     width: 100%;
-    min-height: 240px;
+    min-height: 280px;
+  }
+  
+  .movie-card-media::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 17, 33, 0) 0%,
+      var(--card-bg) 100%
+    );
+  }
+  
+  .movie-card-details {
+    width: 100%;
+    padding: 32px 24px;
   }
 }
