@@ -43,8 +43,7 @@ export const TopMovies = () => {
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? movies.length - 1 : prev - 1));
   };
-
-  // 🟢 CORREGIDO AQUÍ: Se asignó correctamente el nombre de la función 'handleNext'
+// Se asignó correctamente el nombre de la función 'handleNext'
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === movies.length - 1 ? 0 : prev + 1));
   };

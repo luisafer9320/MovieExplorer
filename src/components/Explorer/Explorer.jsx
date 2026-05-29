@@ -88,15 +88,12 @@ export const Explorer = () => {
             const page = 1
             const url =
                 `https://api.themoviedb.org/3/${section.path}?api_key=${apiKey}&language=es-ES&page=${page}`
-
             const response = await fetch(url)
-
             if (!response.ok) {
                 throw new Error(`Error en la API: ${response.status}`)
             }
 
             const data = await response.json()
-            
             if (section.id !== 'today') {
                 try {
                     const res2 = await fetch(`https://api.themoviedb.org/3/${section.path}?api_key=${apiKey}&language=es-ES&page=2`)
@@ -104,16 +101,13 @@ export const Explorer = () => {
                         const data2 = await res2.json()
                         return [...data.results, ...data2.results]
                     }
-                } catch(e) { /* Fallback silencioso */ }
+                } catch (e) { /* Fallback silencioso */ }
             }
-
             return data.results
         }
 
         const loadData = async () => {
-
             try {
-
                 const results = await Promise.all(
                     sections.map(async (section) => [
                         section.id,
@@ -123,9 +117,7 @@ export const Explorer = () => {
 
                 const moviesMap =
                     Object.fromEntries(results)
-
                 setMoviesBySection(moviesMap)
-
             } catch (err) {
 
                 setError(
@@ -133,7 +125,6 @@ export const Explorer = () => {
                 )
 
             } finally {
-
                 setLoading(false)
             }
         }
@@ -143,21 +134,15 @@ export const Explorer = () => {
     }, [])
 
     useEffect(() => {
-
         const el = containerRef.current
-
         if (!el) return
-
         const onScroll = () => {
-
             const max =
                 el.scrollHeight - el.clientHeight
-
             const scrolled =
                 max > 0
                     ? (el.scrollTop / max) * 100
                     : 0
-
             setScrollProgress(
                 Math.min(100, Math.max(0, scrolled))
             )
@@ -200,19 +185,13 @@ export const Explorer = () => {
     )
 
     const filteredMovies = useMemo(() => {
-
         if (!query) return allMovies
-
         const search = query.toLowerCase()
-
         return allMovies.filter((movie) => {
-
             const title =
                 movie.title?.toLowerCase() ?? ''
-
             const overview =
                 movie.overview?.toLowerCase() ?? ''
-
             return (
                 title.includes(search) ||
                 overview.includes(search)
@@ -224,7 +203,7 @@ export const Explorer = () => {
     // =========================================================
     // EFECTOS DEPENDIENTES DE LAS VARIABLES ANTERIORES
     // =========================================================
-    
+
     // Lógica de Scroll Infinito mediante IntersectionObserver
     useEffect(() => {
         if (loading || error) return
@@ -328,11 +307,10 @@ export const Explorer = () => {
 
                         <button
                             key={category}
-                            className={`genre-pill ${
-                                activeCategory === category
+                            className={`genre-pill ${activeCategory === category
                                     ? 'active'
                                     : ''
-                            }`}
+                                }`}
                             onClick={() =>
                                 setActiveCategory(category)
                             }

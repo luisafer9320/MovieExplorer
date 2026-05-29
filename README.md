@@ -1,16 +1,207 @@
-# React + Vite
+# 🎬 MovieExplorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MovieExplorer es una aplicación web moderna desarrollada con React y Vite que permite explorar películas y series utilizando la API de TMDB (The Movie Database).
 
-Currently, two official plugins are available:
+La aplicación ofrece una experiencia visual cinematográfica con banners dinámicos, filtros por género, búsqueda en tiempo real y diseño responsive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# ✨ Características
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 🎥 Hero dinámico con películas destacadas
+* 🔍 Buscador de películas y series
+* 🎭 Filtros por géneros
+* 📱 Diseño responsive
+* 🌌 Interfaz moderna estilo streaming
+* ⚡ Scroll horizontal infinito
+* 🎨 UI con efectos glassmorphism
+* ⭐ Información detallada de películas
+* 📅 Año de lanzamiento y rating
+* 🔥 Integración con TMDB API
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 🛠 Tecnologías Utilizadas
+
+* React
+* Vite
+* JavaScript
+* CSS3
+* TMDB API
+* React Router DOM
+* Lucide React
+
+---
+
+# 📂 Estructura del Proyecto
+
+```bash
+src/
+│
+├── components/
+│   ├── ExplorerHero/
+│   ├── MovieCard/
+│   ├── Navbar/
+│   ├── SearchBox/
+│   └── GenreFilters/
+│
+├── pages/
+│
+├── services/
+│
+├── hooks/
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+# 🚀 Instalación
+
+## 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/luisafer9320/MovieExplorer.git
+```
+
+---
+
+## 2. Entrar al proyecto
+
+```bash
+cd MovieExplorer
+```
+
+---
+
+## 3. Instalar dependencias
+
+```bash
+npm install
+```
+
+---
+
+## 4. Crear archivo `.env`
+
+```env
+VITE_TMDB_API_KEY=tu_api_key
+```
+
+---
+
+## 5. Ejecutar el proyecto
+
+```bash
+npm run dev
+```
+
+La aplicación se abrirá en:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+# 🎬 API Utilizada
+
+Este proyecto utiliza:
+
+* TMDB API
+
+Sitio oficial:
+
+https://www.themoviedb.org/
+
+Documentación:
+
+https://developer.themoviedb.org/docs
+
+---
+
+# 📸 Funcionalidades Principales
+
+## 🔥 Explorer Hero
+
+Muestra una película destacada con:
+
+* fondo dinámico
+* poster
+* rating
+* overview
+* efectos visuales
+
+---
+
+## 🔎 Search Box
+
+Permite buscar:
+
+* películas
+* series
+* contenido popular
+
+---
+
+## 🎭 Genre Filters
+
+Filtros horizontales modernos con scroll suave.
+
+---
+
+# 🎨 Diseño UI
+
+La interfaz está inspirada en plataformas como:
+
+* Netflix
+* Disney+
+* HBO Max
+
+Incluye:
+
+* colores oscuros
+* blur effects
+* sombras cinematográficas
+* animaciones suaves
+
+---
+
+# 📱 Responsive Design
+
+Optimizado para:
+
+* móviles
+* tablets
+* desktop
+
+---
+
+# 🔮 Mejoras Futuras
+
+* ❤️ Sistema de favoritos
+* 🎞 Trailer modal
+* 🌙 Tema oscuro/claro
+* 👤 Login de usuario
+* 📺 Detalles completos de películas
+* 🔥 Tendencias en tiempo real
+* 🎬 Recomendaciones personalizadas
+
+---
+
+# 👩‍💻 Autor
+
+Desarrollado por Luisa Amaya
+
+GitHub:
+https://github.com/luisafer9320
+
+---
+
+# ⭐ Agradecimientos
+
+* TMDB API
+* React
+* Vite
+* Comunidad Open Source
